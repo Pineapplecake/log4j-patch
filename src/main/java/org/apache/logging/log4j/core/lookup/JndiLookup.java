@@ -1,13 +1,18 @@
-/*
- * Copyright © 2021 Glavo <zjx001202@gmail.com>
- * This work is free. You can redistribute it and/or modify it under the
- * terms of the Do What The Fuck You Want To Public License, Version 2,
- * as published by Sam Hocevar. See http://www.wtfpl.net/ for more details.
- */
 package org.apache.logging.log4j.core.lookup;
 
-public class JndiLookup {
-    public JndiLookup() {
-        throw new NoClassDefFoundError("JNDI lookup is disabled");
+import org.apache.logging.log4j.core.LogEvent;
+import org.apache.logging.log4j.core.config.plugins.Plugin;
+
+@Plugin(name = "jndi", category = "Lookup")
+public class JndiLookup implements StrLookup {
+    
+    @Override
+    public String lookup(final String key) {
+        return "(Disabled JNDI Lookup with key: " + key + ")";
+    }
+
+    @Override
+    public String lookup(final LogEvent event, final String key) {
+        return "(Disabled JNDI Lookup with key: " + key + ")";
     }
 }

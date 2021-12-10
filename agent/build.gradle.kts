@@ -3,7 +3,7 @@ plugins {
 }
 
 tasks.jar {
-    archiveBaseName.set("log4j-patch-agent")
+    archiveBaseName.set("log4j-2.0-beta9-patch-agent")
     manifest.attributes(
         "Premain-Class" to "org.glavo.log4j.patch.agent.Log4jAgent"
     )
